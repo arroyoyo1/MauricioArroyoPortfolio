@@ -1,6 +1,6 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-family: 'Switzer', sans-serif;
     box-sizing: border-box;
 }
@@ -10,17 +10,28 @@ body {
     background: #fcfcfc;
 }
 
-#header {
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
     background-image: url(./images/fondo1.png);
     background-size: cover;
     background-position: center;
+    z-index: -1;
+}
+
+/* sticky header */
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
 }
 
 .nav-container {
     padding: 10px 2%;
-
 }
 
 nav {
@@ -28,7 +39,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 15px 0px;
+    padding: 15px 0;
 }
 
 .nav-left {
@@ -38,16 +49,17 @@ nav {
 .nav-item {
     display: inline-block;
     list-style: none;
-    margin: 0px 5px;
+    margin: 0 5px;
 }
 
 .nav-option {
-    color: #fcfcfc;
+    color: #fcfcfc; 
     font-weight: 100;
     text-decoration: none;
-    
 }
 
 h1 {
-    font-size: 500px;
+    font-size: 200px;
+    font-weight: 400;
+    color: #ffffff;
 }
