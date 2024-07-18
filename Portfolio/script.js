@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         runAnimation(0);
 
-        let isHovered = true; // check is the element is hovered
+        let isHovered = true; // check if the element is hovered
 
         element.addEventListener('mouseenter', function() {
             isHovered = true;
@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
             element.style.transition = 'color 0.5s ease-out'; 
             element.style.color = 'transparent'; 
 
-            
             setTimeout(() => {
                 if (!isHovered) {
                     element.style.color = '#fcfcfc'; 
@@ -81,10 +80,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', function() {
         if (window.scrollY > 0) {
-            navContainer.style.background = 'rgba(57, 57, 57, 0.23)'; // translucid
-            navContainer.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)'; // shadow for depth fx
+            navContainer.style.background = 'rgba(0, 0, 0, 0.1)'; // translucent background
+            navContainer.style.backdropFilter = 'blur(5px)'; // blur effect
+            navContainer.style.borderRadius = '10px'; // rounded corners
+            navContainer.style.boxShadow = '0px 0px 16px 0px rgba(0, 0, 0, 0.4)'; // shadow for depth
         } else {
-            navContainer.style.background = 'rgba(0, 0, 0, 0)'; // no style for the bg
+            navContainer.style.background = 'rgba(0, 0, 0, 0)'; // no style for the background
+            navContainer.style.backdropFilter = 'none'; // remove blur effect
             navContainer.style.boxShadow = 'none'; // remove shadow
         }
     });
