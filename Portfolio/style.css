@@ -1,0 +1,53 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Switzer', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    color: #000000;
+    background: #fcfcfc;
+}
+
+#header {
+    width: 100%;
+    height: 100vh;
+    background-image: url(./images/fondo1.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.nav-container {
+    padding: 10px 2%;
+
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 15px 0px;
+}
+
+.nav-left {
+    display: flex;
+}
+
+.nav-item {
+    display: inline-block;
+    list-style: none;
+    margin: 0px 5px;
+}
+
+.nav-option {
+    color: #fcfcfc;
+    font-weight: 100;
+    text-decoration: none;
+    
+}
+
+h1 {
+    font-size: 500px;
+}
