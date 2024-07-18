@@ -29,15 +29,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.innerText = updatedText;
                 animationId = setTimeout(() => {
                     runAnimation(index + 1);
-                }, 40); // Animation duration
+                }, 40); // duration
             } else {
-                element.innerText = originalText; // Reset to original text after animation completes
+                element.innerText = originalText; // turn back to og state
             }
         }
 
         runAnimation(0);
 
-        let isHovered = true; // Flag to check if element is hovered
+        let isHovered = true; // check is the element is hovered
 
         element.addEventListener('mouseenter', function() {
             isHovered = true;
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         option.addEventListener('mouseenter', function() {
             this.classList.add('hovered');
-            this.style.color = '#ff4f30'; 
+            this.style.color = '#ffa3b4'; 
             animateCharacters(this);
         });
 
@@ -75,5 +75,17 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.remove('hovered');
             this.style.color = '#fcfcfc'; 
         });
+    });
+
+    const navContainer = document.querySelector('.nav-container');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 0) {
+            navContainer.style.background = 'rgba(57, 57, 57, 0.23)'; // translucid
+            navContainer.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)'; // shadow for depth fx
+        } else {
+            navContainer.style.background = 'rgba(0, 0, 0, 0)'; // no style for the bg
+            navContainer.style.boxShadow = 'none'; // remove shadow
+        }
     });
 });
