@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         option.addEventListener('mouseenter', function() {
             this.classList.add('hovered');
-            this.style.color = '#ffa3b4'; 
+            this.style.color = '#ff8400'; 
             animateCharacters(this);
         });
 
@@ -90,4 +90,41 @@ document.addEventListener('DOMContentLoaded', function() {
             navContainer.style.boxShadow = 'none'; // remove shadow
         }
     });
+
+    const words = ["design", "technology", "programming", "experiences", "development"];
+    let currentIndex = 0;
+    const changingWordElement = document.getElementById("changing-word");
+
+    function typeWriter(word, index) {
+        if (index < word.length) {
+            changingWordElement.innerText += word.charAt(index);
+            setTimeout(() => {
+                typeWriter(word, index + 1);
+            }, 100); // typing speed here
+        } else {
+            setTimeout(deleteWriter, 2000); // wait before starting to delete
+        }
+    }
+
+    function deleteWriter() {
+        const currentText = changingWordElement.innerText;
+        if (currentText.length > 0) {
+            changingWordElement.innerText = currentText.slice(0, -1);
+            setTimeout(deleteWriter, 100); // deleting speed here
+        } else {
+            currentIndex = (currentIndex + 1) % words.length;
+            setTimeout(() => {
+                typeWriter(words[currentIndex], 0);
+            }, 500); // wait before starting to type new word
+        }
+    }
+
+    function changeWord() {
+        changingWordElement.innerText = ""; // clear current text
+        typeWriter(words[currentIndex], 0);
+    }
+
+    changeWord(); // initial call
 });
+
+
